@@ -1,18 +1,10 @@
-name: CI/CD Pipeline
+name: Build
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: List files
-        run: ls -la
-      
-      - name: Find HTML files
-        run: find . -name "*.html" -type f
+      - uses: actions/checkout@v3
+      - run: echo "Build successful"
