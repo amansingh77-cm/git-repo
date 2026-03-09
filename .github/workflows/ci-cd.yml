@@ -2,24 +2,17 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, master]
   pull_request:
-    branches: [main, master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Validate HTML
-        run: |
-          echo "Checking HTML files..."
-          find . -name "*.html" -type f -exec echo "Found: {}" \;
+      - name: List files
+        run: ls -la
       
-      - name: Check project files
-        run: |
-          echo "Project structure:"
-          ls -la
+      - name: Find HTML files
+        run: find . -name "*.html" -type f
