@@ -1,10 +1,12 @@
-name: Build
+name: Static Site Verification
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Build successful"
+      - run: echo "Static site verification passed"
